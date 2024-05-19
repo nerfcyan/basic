@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMIT</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff; /* Add a background color if needed */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            z-index: 1000; /* Ensure the header appears above other content */
+        }
+
+        img {
+            height: 60px; /* Adjust the height of the logo as needed */
+            background-color: #ccc; /* Set the background color to grey */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px; /* Adjust the font size of the heading as needed */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333; /* Adjust the color of the links as needed */
+        }
+
+        nav ul li a:hover {
+            color: #555; /* Adjust the color of the links on hover as needed */
+        }
+
+        /* Add some padding to the body to compensate for the fixed header */
+        body {
+            padding-top: 100px; /* Adjust the value according to the height of your header */
+        }
+
+        /* Adjust the padding of the first content section */
+        .hero {
+            padding-top: 80px; /* Adjust this value to ensure the heading is not obscured by the fixed header */
+            position: relative; /* Set position relative for absolute positioning of images */
+            overflow: hidden; /* Hide overflow to prevent horizontal scrollbar */
+        }
+
+        .swipe-background img {
+            width: 100%; /* Adjust based on the number of images */
+            height: 100%;
+            display: none; /* Initially hide all images except the first one */
+        }
+
+        .swipe-background img.active {
+            display: block; /* Display the active image */
+        }
+
+        .swipe-content {
+            position: relative;
+            z-index: 1; /* Ensure content appears above the swipe background */
+            color: #fff; /* Set text color */
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Style the anchor tags */
+        .swipe-background a {
+            display: block;
+            width: 33.333%; /* Adjust based on the number of images */
+            height: 100%;
+        }
+
+        .swipe-content h2 {
+            color: black; /* Set the color of the h2 to black */
+        }
+
+        .swipe-content p {
+            color: black; /* Set the color of paragraphs to black */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="image/logo.jpg" alt="Logo">
+        <h1>SOUTHERN MINDANAO INSTITUTE OF TECHNOLOGY, INC.</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Your content sections -->
+
+    <section id="home" class="hero">
+        <div class="swipe-background">
+            <img src="image/school.jpg" alt="Background" class="active">
+            <img src="image/school2.jpg" alt="Background">
+            <img src="image/school3.jpg" alt="Background">
+        </div>
+        <div class="swipe-content">
+            <h2>Welcome to Our School</h2>
+            <p>Find out more about the amazing programs we offer.</p>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Our School</h2>
+        <p>Southern Mindanao Institute of Technology is a dynamic Institution committed to excellent education.</p>
+    </section>
+
+    <section id="courses" class="courses">
+        <h2>Our Courses</h2>
+        <ul>
+            <li>CHED COURSES</li>
+            <li>TESDA COURSES</li>
+            <li>BASIC EDUCATION CURRICULUM</li>
+            <li>SENIOR HIGH SCHOOL</li>
+            <!-- Add more courses as needed -->
+        </ul>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <!-- Change the email address to the Facebook page link -->
+        <p>Email: <a href="https://web.facebook.com/SouthernMindanaoInstituteofTechnologyOfficialPage/about">https://www.facebook.com/Southern</a></p>
+        <p>Phone: (064) 200 3549</p>
+        <p>Address: Brgy. Buenaflor, National Highway, Tacurong, Philippines, 9800</p>
+    </section>
+    
+
+   <!-- Your HTML content sections -->
+
+<footer>
+    <p>&copy; 2024 SMIT. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get all background images
+        var images = document.querySelectorAll(".swipe-background img");
+        
+        // Add click event listener to each image
+        images.forEach(function(image) {
+            image.addEventListener("click", function() {
+                // Hide the currently active image
+                var currentImage = document.querySelector(".swipe-background img.active");
+                currentImage.classList.remove("active"); // Remove the "active" class from the current image
+                
+                // Add the "active" class to the clicked image
+                image.classList.add("active");
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
